@@ -3,22 +3,24 @@ const { MongoClient } = require("mongodb");
 require("dotenv").config();
 
 const app = express();
-const PORT = 3000;
+const PORT = 8000;
 
-const uri = process.env.MONGO_URI; // Use environment variables for security
+const uri = "mongodb://127.0.0.1:27017"; // Use environment variables for security
 const client = new MongoClient(uri);
 
 app.use(express.json());
 
 app.post("/api/todolist", async (req, res) => {
+	console.log(req.query)
   async function run() {
     try {
       await client.connect();
       const dbo = client.db("mydb");
+	    console.log("connected to db");
       const query = {};
       const options = {
-        sort: { todoNumber: 1 },
-        projection: { todoNumber: 1, todoText: 1 },
+        sort: { todoNumber: req.query.todoNumber },
+        projection: { todoNumber: req.query.todoNumber, todoText:req.query.todoText },
       };
 
       const cursor = dbo.collection("todo").find(query, options);
