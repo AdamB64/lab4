@@ -11,38 +11,9 @@ app.use(express.json());
 
 app.use("/api/todolist", function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Heade
-const { MongoClient } = require("mongodb");
-require("dotenv").config();
+    res.header("Access-Control-Allow-Header")
+});
 
-const app = express();
-const PORT = 8000;
-
-const uri = "mongodb://127.0.0.1:27017"; // Use environment variables for security
-const client = new MongoClient(uri);
-
-app.use(express.json());
-
-app.use("/api/todolist", function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-    next();
-   });const { MongoClient } = require("mongodb");
-require("dotenv").config();
-
-const app = express();
-const PORT = 8000;
-
-const uri = "mongodb://127.0.0.1:27017"; // Use environment variables for security
-const client = new MongoClient(uri);
-
-app.use(express.json());
-
-app.use("/api/todolist", function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Heade
-   
 
 app.post("/api/todolist", async (req, res) => {
 	console.log(req.query)
@@ -75,18 +46,6 @@ app.post("/api/todolist", async (req, res) => {
   }
   run().catch(console.dir);const { MongoClient } = require("mongodb");
 require("dotenv").config();
-
-const app = express();
-const PORT = 8000;
-
-const uri = "mongodb://127.0.0.1:27017"; // Use environment variables for security
-const client = new MongoClient(uri);
-
-app.use(express.json());
-
-app.use("/api/todolist", function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Heade
 });
 
 app.listen(PORT, () => {
