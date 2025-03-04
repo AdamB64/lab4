@@ -30,7 +30,7 @@ app.post("/api/todolist", async (req, res) => {
         projection: { todoNumber: req.query.todoNumber, todoText:req.query.todoText },
       };
 
-      const cursor = dbo.collection("todo").find(query, options);
+      const cursor = dbo.collection("todolist").find(query, options);
       if ((await cursor.estimatedDocumentCount) === 0) {
         console.log("No documents found!");
         return res.send([]);
