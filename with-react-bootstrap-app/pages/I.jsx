@@ -3,12 +3,19 @@ import {QueryClient,QueryClientProvider} from "react-query";
 import "../style/index.css";
 import Layout from '../components/layout'
 const queryClient = new QueryClient();
-export default function I({ Component, pageProps }) {
- return (
-<QueryClientProvider client={queryClient}>
- <Layout>
- <Component {...pageProps} />
- </Layout>
-</QueryClientProvider>
- )
-}
+export default function App({ Component, pageProps }) {
+    console.log("Component:", Component); // Debugging log
+  
+    if (!Component) {
+      return <h1>Error: Component is undefined</h1>; // Display an error if undefined
+    }
+  
+    return (
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </QueryClientProvider>
+    );
+  }
+  
