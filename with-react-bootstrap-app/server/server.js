@@ -22,7 +22,7 @@ app.post("/api/todolist", async (req, res) => {
   async function run() {
     try {
       await client.connect();
-      const dbo = client.db("mydb");
+      const dbo = await client.db("mydb");
 	    console.log("connected to db");
       const query = {};
       const options = {
@@ -30,7 +30,7 @@ app.post("/api/todolist", async (req, res) => {
         projection: { todoNumber: req.query.todoNumber, todoText:req.query.todoText },
       };
 
-      const cursor = dbo.collection("todolist").find(query, options);
+      const cursor = await dbo.collection("todolis").find(query, options);
       if ((await cursor.estimatedDocumentCount) === 0) {
         console.log("No documents found!");
         return res.send([]);
