@@ -26,7 +26,7 @@ app.post("/api/todolist", async (req, res) => {
 	    console.log("connected to db");
       const query = {};
       const options = {
-        sort: { todoNumber: req.query.todoNumber },
+        sort: { todoNumber: Number(req.query.todoNumber) || 1 }, // Default to ascending order
         projection: { todoNumber: req.query.todoNumber, todoText:req.query.todoText },
       };
 
