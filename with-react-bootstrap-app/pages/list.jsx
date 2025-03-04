@@ -11,8 +11,8 @@ function save(toDoList){
   console.log("Storing items")
 toDoList.forEach( element =>
 {
- var requestURI = "http://127.0.0.1:8000/api/todolist?todoNumber=" + element.id + 
-"&todoText=" + element.name
+ var requestURI = "http://127.0.0.1:8000/api/todolist?todoText=" + element.name + 
+"&todoNumber=" + element.id
  console.log(requestURI)
  axios.post(requestURI)
 })
