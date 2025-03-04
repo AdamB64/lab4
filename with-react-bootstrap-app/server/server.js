@@ -41,7 +41,7 @@ app.post("/api/todolist", async (req, res) => {
       res.send(response);
     } catch (error) {
       console.error(error);
-      res.status(500).send("Error retrieving todo list");
+      res.status(500).send("Error retrieving todo list",{message:"v"});
     } finally {
       await client.close();
     }
