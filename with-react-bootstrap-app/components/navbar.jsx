@@ -12,7 +12,7 @@ export default function Navbar() {
 	 <Link href="/list">To Do List</Link>
 </li>
 <li>
-	<Link href="/app_Q">app</Link>
+	<Link href="/I">app</Link>
 </li>
  </ul>
  );
