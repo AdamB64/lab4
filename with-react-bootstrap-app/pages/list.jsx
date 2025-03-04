@@ -7,7 +7,7 @@ let nextId = 0;
 export default function List() {
   const [name, setName] = useState('');
   const [artists, setArtists] = useState([]);
-function save(){
+function save(toDoList){
   console.log("Storing items")
 toDoList.forEach( element =>
 {
@@ -40,7 +40,7 @@ toDoList.forEach( element =>
  
 }}>Retrieve ToDo List</button>
  
- <button onClick={() => save()}>Save ToDo List</button>
+ <button onClick={() => save(artists)}>Save ToDo List</button>
 
     </>
   );
