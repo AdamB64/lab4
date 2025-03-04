@@ -7,6 +7,16 @@ let nextId = 0;
 export default function List() {
   const [name, setName] = useState('');
   const [artists, setArtists] = useState([]);
+function save(){
+  console.log("Storing items")
+toDoList.forEach( element =>
+{
+ var requestURI = "http://127.0.0.1:8000/api/todolist?todoNumber=" + element.id + 
+"&todoText=" + element.name
+ console.log(requestURI)
+ axios.post(requestURI)
+})
+}
 
   return (
     <>
@@ -26,7 +36,7 @@ export default function List() {
           <li key={artist.id}>{artist.name}</li>
         ))}
       </ul>
-      <button onClick={() => {
+      <button onClick={() => {save
  
 }}>Retrieve ToDo List</button>
  
