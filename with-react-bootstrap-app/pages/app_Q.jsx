@@ -3,7 +3,7 @@ import {QueryClient,QueryClientProvider} from "react-query";
 import "../style/index.css";
 import Layout from '../components/layout'
 const queryClient = new QueryClient();
-export default function app({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
  return (
 <QueryClientProvider client={queryClient}>
  <Layout>
