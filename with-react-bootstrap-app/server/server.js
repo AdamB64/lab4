@@ -39,6 +39,7 @@ app.post("/api/todolist", async (req, res) => {
       // Convert the cursor result to an array and send response
       const response = await cursor.toArray();
       res.send(response);
+      console.log(response)
     } catch (error) {
       console.error(error);
       res.status(500).send("Error retrieving todo list",{message:"v"});
