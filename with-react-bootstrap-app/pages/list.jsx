@@ -36,13 +36,12 @@ toDoList.forEach( element =>
           <li key={artist.id}>{artist.name}</li>
         ))}
       </ul>
-      <button onClick={() => {save
+      <button onClick={() => {
  
 }}>Retrieve ToDo List</button>
  
-<button onClick={() => {
- 
-}}>Save ToDo List</button>
+ <button onClick={() => save()}>Save ToDo List</button>
+
     </>
   );
 }
