@@ -11,6 +11,9 @@ export default function Navbar() {
 <li>
 	 <Link href="/list">To Do List</Link>
 </li>
+<li>
+	<Link href="/roulette">roulette</Link>
+</li>
  </ul>
  );
 }
