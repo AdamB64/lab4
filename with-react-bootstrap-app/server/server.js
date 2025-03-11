@@ -43,6 +43,7 @@ require("dotenv").config();
 });
 
 app.get('api/todolist-get', async(req,res)=>{
+  console.log("ran")
   try {
     await client.connect();
     const dbo = await client.db("mydb");
