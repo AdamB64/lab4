@@ -27,11 +27,11 @@ app.get("/api/todolist", async(req,res)=>{
 
     const todos = await collection.find().toArray();  // Convert cursor to array
 
-    res.send(200).send(todos)
+    res.status(200).send(todos)
   }catch(error){
 
     console.log(error)
-    res.send(500).send("error finding list")
+    res.status(500).send("error finding list")
   } finally{
     await client.close();
   }
