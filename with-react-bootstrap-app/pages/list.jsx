@@ -28,12 +28,20 @@ function get(){
 console.log(response.data)
 // If I'd got the server response to be a perfect match for the react, I wouldn't need this!
 
-const lits = document.getElementById("todo")
-const array = response.data
+const list = document.getElementById("todo"); // Get the UL or OL element
+const array = response.data; // Array of todo items
 
-for(let i=0;i<array.length;i++){
-  console.log(array[i])
+// Clear previous list items to avoid duplication
+list.innerHTML = "";
+
+// Loop through the array and create list items
+for (let i = 0; i < array.length; i++) {
+  const listItem = document.createElement("li"); // Create a new <li> element
+  listItem.textContent = `#${array[i].todoNumber}: ${array[i].todoText}`; // Set text
+
+  list.appendChild(listItem); // Append to the list
 }
+
 
 /*function untidy_mapping(element) {
 return{ id: Number(element.todoNumber), name: element.todoText, done: 
