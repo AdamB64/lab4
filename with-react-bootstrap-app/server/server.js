@@ -17,25 +17,22 @@ app.use("/api/todolist", function(req, res, next) {
  });
 
 
-app.get("/api/todolist", async(req,res)=>{
-  console.log("ran")
+ app.get("/api/todolist", async (req, res) => {
+  console.log("GET request received");
+
   try {
-    await client.connect();
-    const dbo = await client.db("mydb");
-    const collection = dbo.collection("todolis");
-    console.log("connected to db");
+    const collection = db.collection("todolis");
+    const todos = await collection.find().toArray();  // Convert MongoDB cursor to array
 
-    const todos = await collection.find().toArray();  // Convert cursor to array
-
-    res.status(200).send(todos)
-  }catch(error){
-
-    console.log(error)
-    res.status(500).send("error finding list")
-  } finally{
-    await client.close();
+    res.status(200).json(todos);  // ✅ Ensure only one response is sent
+  } catch (error) {
+    console.error("Error retrieving todo list:", error);
+    if (!res.headersSent) {
+      res.status(500).json({ error: "Error retrieving todo list" });  // ✅ Only send response if not sent
+    }
   }
-})
+});
+
 
 app.post("/api/todolist", async (req, res) => {
 	console.log(req.query)
