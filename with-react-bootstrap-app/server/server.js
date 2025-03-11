@@ -21,7 +21,9 @@ app.use("/api/todolist", function(req, res, next) {
   console.log("GET request received");
 
   try {
-    const collection = db.collection("todolis");
+    await client.connect();
+      const dbo = await client.db("mydb");
+    const collection = dbo.collection("todolis");
     const todos = await collection.find().toArray();  // Convert MongoDB cursor to array
 
     res.status(200).json(todos);  // ✅ Ensure only one response is sent
