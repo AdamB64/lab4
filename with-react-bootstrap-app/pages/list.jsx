@@ -8,7 +8,7 @@ export default function List() {
   const [name, setName] = useState('');
   const [artists, setArtists] = useState([]);
 
-  
+
 function save(toDoList){
   console.log("Storing items")
 toDoList.forEach( element =>
@@ -27,7 +27,15 @@ function get(){
  axios.get(url).then((response) => {
 console.log(response.data)
 // If I'd got the server response to be a perfect match for the react, I wouldn't need this!
-function untidy_mapping(element) {
+
+const lits = document.getElementById("todo")
+const array = response.data
+
+for(let i=0;i<array.length;i++){
+  console.log(array[i])
+}
+
+/*function untidy_mapping(element) {
 return{ id: Number(element.todoNumber), name: element.todoText, done: 
 false };
 }
@@ -35,7 +43,7 @@ const retrievedToDoList = response.data.map(untidy_mapping);
 setToDoList([
 ...toDoList,
 ...retrievedToDoList
- ]);
+ ]);*/
 });
 }
 
@@ -60,6 +68,7 @@ setToDoList([
       <button onClick={() => get()}>Retrieve ToDo List</button>
  
  <button onClick={() => save(artists)}>Save ToDo List</button>
+ <list id="todo"></list>
 
     </>
   );
