@@ -17,7 +17,7 @@ app.use("/api/todolist", function(req, res, next) {
  });
 
 
- app.get('api/todolists', async(req,res)=>{
+ app.post('api/todolists', async(req,res)=>{
   console.log("ran")
   try {
     await client.connect();
