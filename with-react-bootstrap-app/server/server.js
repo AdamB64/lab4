@@ -17,6 +17,24 @@ app.use("/api/todolist", function(req, res, next) {
  });
 
 
+ app.get('api/todolist', async(req,res)=>{
+  console.log("ran")
+  try {
+    await client.connect();
+    const dbo = await client.db("mydb");
+    const collection = dbo.collection("todolis");
+    console.log("connected to db");
+
+    res.send(200).send(collection.find())
+  }catch(error){
+
+    console.log(error)
+    res.send(500).send("error finding list")
+  } finally{
+    await client.close();
+  }
+})
+
 app.post("/api/todolist", async (req, res) => {
 	console.log(req.query)
   async function run() {
@@ -41,24 +59,6 @@ app.post("/api/todolist", async (req, res) => {
   run().catch(console.dir);const { MongoClient } = require("mongodb");
 require("dotenv").config();
 });
-
-app.get('api/todolist', async(req,res)=>{
-  console.log("ran")
-  try {
-    await client.connect();
-    const dbo = await client.db("mydb");
-    const collection = dbo.collection("todolis");
-    console.log("connected to db");
-
-    res.send(200).send(collection.find())
-  }catch(error){
-
-    console.log(error)
-    res.send(500).send("error finding list")
-  } finally{
-    await client.close();
-  }
-})
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://127.0.0.1:${PORT}`);
