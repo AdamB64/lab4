@@ -42,6 +42,23 @@ app.post("/api/todolist", async (req, res) => {
 require("dotenv").config();
 });
 
+app.post('api/todolist-get', async(req,res)=>{
+  try {
+    await client.connect();
+    const dbo = await client.db("mydb");
+    const collection = dbo.collection("todolis");
+    console.log("connected to db");
+
+    res.send(200).send(collection.find())
+  }catch(error){
+
+    console.log(error)
+    res.send(500).send("error finding list")
+  } finally{
+    await client.close();
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://127.0.0.1:${PORT}`);
 });

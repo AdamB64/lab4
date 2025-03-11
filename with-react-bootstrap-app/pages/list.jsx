@@ -18,6 +18,24 @@ toDoList.forEach( element =>
 })
 }
 
+
+function get(){
+  console.log("Getting ToDo list")
+ axios.get('http://127.0.0.1:8000/api/todolist-get').then((response) => {
+console.log(response.data)
+// If I'd got the server response to be a perfect match for the react, I wouldn't need this!
+function untidy_mapping(element) {
+return{ id: Number(element.todoNumber), name: element.todoText, done: 
+false };
+}
+const retrievedToDoList = response.data.map(untidy_mapping);
+setToDoList([
+...toDoList,
+...retrievedToDoList
+ ]);
+});
+}
+
   return (
     <>
       <h1>Inspiring sculptors:</h1>
@@ -36,9 +54,7 @@ toDoList.forEach( element =>
           <li key={artist.id}>{artist.name}</li>
         ))}
       </ul>
-      <button onClick={() => {
- 
-}}>Retrieve ToDo List</button>
+      <button onClick={() => get()}>Retrieve ToDo List</button>
  
  <button onClick={() => save(artists)}>Save ToDo List</button>
 
