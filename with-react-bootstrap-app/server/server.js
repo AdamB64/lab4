@@ -42,7 +42,7 @@ app.post("/api/todolist", async (req, res) => {
 require("dotenv").config();
 });
 
-app.get('api/todolist-get', async(req,res)=>{
+app.get('api/todolist', async(req,res)=>{
   console.log("ran")
   try {
     await client.connect();

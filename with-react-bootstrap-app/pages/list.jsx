@@ -21,7 +21,7 @@ toDoList.forEach( element =>
 
 function get(){
   console.log("Getting ToDo list")
- axios.get('http://127.0.0.1:8000/api/todolist-get').then((response) => {
+ axios.get('http://127.0.0.1:8000/api/todolist').then((response) => {
 console.log(response.data)
 // If I'd got the server response to be a perfect match for the react, I wouldn't need this!
 function untidy_mapping(element) {
