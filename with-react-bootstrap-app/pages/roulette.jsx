@@ -1,9 +1,10 @@
-const Roulette = () => {
-return (
-<Layout>
-<h1>Play roulette</h1>
-<p>A roulette wheel will live here</p>
-</Layout>
-);
+import Container from "react-bootstrap";
+
+export default function roulette(){
+	return(
+        <Container>
+        <h1>Play roulette</h1>
+        <p>A roulette wheel will live here</p>
+        </Container>
+    )
 };
-export default Roulette;
