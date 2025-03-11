@@ -1,5 +1,3 @@
-import Layout from "../components/layout";
-
 const Roulette = () => {
 return (
 <Layout>
