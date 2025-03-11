@@ -7,6 +7,8 @@ let nextId = 0;
 export default function List() {
   const [name, setName] = useState('');
   const [artists, setArtists] = useState([]);
+
+  
 function save(toDoList){
   console.log("Storing items")
 toDoList.forEach( element =>
