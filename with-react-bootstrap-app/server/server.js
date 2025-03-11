@@ -25,7 +25,9 @@ app.get("/api/todolist", async(req,res)=>{
     const collection = dbo.collection("todolis");
     console.log("connected to db");
 
-    res.send(200).send(collection.find())
+    const todos = await collection.find().toArray();  // Convert cursor to array
+
+    res.send(200).send(todos)
   }catch(error){
 
     console.log(error)
