@@ -23,6 +23,7 @@ app.post("/api/todolist", async (req, res) => {
     try {
       await client.connect();
       const dbo = await client.db("mydb");
+      const collection = dbo.collection("todolis");
 	    console.log("connected to db");
       const sortDirection = req.query.todoNumber === "1" ? 1 : (req.query.todoNumber === "-1" ? -1 : 1); // Default to ascending order if invalid direction
       const options = {
@@ -30,8 +31,11 @@ app.post("/api/todolist", async (req, res) => {
         projection: { todoNumber: req.query.todoNumber, todoText:req.query.todoText },
       };
 
-      const cursor = await dbo.collection("todolis").insertMany(options);
-      console.log("added to db"+cursor)
+     // Insert the new todo item
+    const newTodo = { todoNumber: parseInt(todoNumber), todoText };
+
+    const result = await collection.insertOne(newTodo);
+    console.log("added "+results)
       // Convert the cursor result to an array and send response
       const response = await cursor.toArray();
       res.send(response);
