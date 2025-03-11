@@ -32,7 +32,7 @@ app.post("/api/todolist", async (req, res) => {
       };
 
       const cursor = await dbo.collection("todolis").find(query, options);
-      if ((await cursor.countDocuments()) === 0) {
+      if ((await cursor.countDocuments) === 0) {
         console.log("No documents found!");
         return res.send([]);
       }
