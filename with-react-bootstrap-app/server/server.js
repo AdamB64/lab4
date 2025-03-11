@@ -30,6 +30,7 @@ app.post("/api/todolist", async (req, res) => {
     const newTodo = { todoNumber: parseInt(req.query.todoNumber), todoText:req.query.todoText };
 
     const result = await collection.insertOne(newTodo);
+    await dbo.save();
     console.log("added "+JSON.stringify(result))
     } catch (error) {
       console.error(error);
