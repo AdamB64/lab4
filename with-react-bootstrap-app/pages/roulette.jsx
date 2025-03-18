@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Container from "react-bootstrap";
+import {Container} from "react-bootstrap";
 
 // Dynamically import the Wheel component to avoid SSR issues
 const WheelComponent = dynamic(() => import('../components/wheel'), { ssr: false });
