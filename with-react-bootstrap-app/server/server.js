@@ -36,7 +36,7 @@ app.use("/api/todolist", function(req, res, next) {
 });
 
 
-app.post('/api/price',async (req,res)=> {
+app.post('/api/prize',async (req,res)=> {
   async function run(){
     try{
 
