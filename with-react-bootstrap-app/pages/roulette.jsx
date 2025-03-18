@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Layout from '../components/layout';
 import dynamic from 'next/dynamic';
+import Container from "react-bootstrap";
 
 // Dynamically import the Wheel component to avoid SSR issues
 const WheelComponent = dynamic(() => import('../components/wheel'), { ssr: false });
@@ -32,7 +32,7 @@ const Roulette = () => {
   };
 
   return (
-    <Layout>
+    <Container>
       <h1>🎰 Play Roulette</h1>
       <p>Spin the wheel and win exciting prizes!</p>
 
@@ -62,7 +62,7 @@ const Roulette = () => {
       {prizeMessage && (
         <h2 style={{ marginTop: '20px', color: '#007bff' }}>{prizeMessage}</h2>
       )}
-    </Layout>
+    </Container>
   );
 };
 
