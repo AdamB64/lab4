@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 import dynamic from 'next/dynamic';
 
 // Dynamically import the Wheel component to avoid SSR issues
-const WheelComponent = dynamic(() => import('../components/Wheel'), { ssr: false });
+const WheelComponent = dynamic(() => import('../components/wheel'), { ssr: false });
 
 const Roulette = () => {
   const [mustSpin, setMustSpin] = useState(false);
