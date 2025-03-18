@@ -10,6 +10,16 @@ return import("../components/wheel");
 console.log(Wheel)
 
 const Roulette = () => {
+
+     // Define state for mustSpin and prizeNumber
+  const [mustSpin, setMustSpin] = useState(false);
+  const [prizeNumber, setPrizeNumber] = useState(0);
+
+  const handleSpin = () => {
+    const newPrizeNumber = Math.floor(Math.random() * 3); // Assuming 3 options
+    setPrizeNumber(newPrizeNumber);
+    setMustSpin(true);
+  };
 return (
 <Layout>
 <h1>Play roulette</h1>
