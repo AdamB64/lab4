@@ -37,6 +37,9 @@ app.use("/api/todolist", function(req, res, next) {
 
 
 app.post('/api/prize',async (req,res)=> {
+  console.log("ran")
+  console.log(req.query)
+  console.log(req.params)
   async function run(){
     try{
 
