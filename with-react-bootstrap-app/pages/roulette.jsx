@@ -1,5 +1,6 @@
 import Layout from "../components/layout";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 const Wheel = dynamic(
 () => {
 return import("../components/wheel");
