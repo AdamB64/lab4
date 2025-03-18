@@ -7,6 +7,8 @@ return import("../components/wheel");
 { ssr: false }
 );
 
+console.log(wheel)
+
 const Roulette = () => {
 return (
 <Layout>

@@ -5,8 +5,6 @@ const data = [
 { option: '1', style: { backgroundColor: 'white' } },
 { option: '2' },
 ]
-const [mustSpin, setMustSpin] = useState(false);
-  const [prizeNumber, setPrizeNumber] = useState(0);
 export default ({mustSpin, prizeNumber}) => (
 <>
 <Wheel
