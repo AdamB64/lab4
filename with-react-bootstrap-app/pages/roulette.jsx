@@ -7,7 +7,7 @@ return import("../components/wheel");
 { ssr: false }
 );
 
-console.log(wheel)
+console.log(Wheel)
 
 const Roulette = () => {
 return (
