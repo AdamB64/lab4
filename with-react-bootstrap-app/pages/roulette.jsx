@@ -8,8 +8,8 @@ const WheelComponent = dynamic(() => import('../components/wheel'), { ssr: false
 
 function prize(p){
   console.log(p)
-  //const url="http://127.0.0.1:8000/api/prize?="
-  //axios.post()
+  const url="http://127.0.0.1:8000/api/prize?="+p
+  axios.post(url)
 }
 
 const Roulette = () => {

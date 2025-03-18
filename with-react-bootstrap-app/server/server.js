@@ -36,6 +36,27 @@ app.use("/api/todolist", function(req, res, next) {
 });
 
 
+app.post('/api/price',async (req,res)=> {
+  async function run(){
+    try{
+
+      await client.connect();
+      const dbo = await client.db("mydb");
+      const collection = dbo.collection("prices")
+
+      const r =await collection.insertOne(req.query)
+      console.log("added "+JSON.stringify(r))
+
+    }catch(error){
+      console.log(error)
+    } finally{
+      await client.close();
+    }
+  }
+
+})
+
+
 app.post("/api/todolist", async (req, res) => {
 	console.log(req.query)
   async function run() {
