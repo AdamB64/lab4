@@ -39,15 +39,17 @@ app.use("/api/todolist", function(req, res, next) {
 app.post('/api/prize',async (req,res)=> {
   console.log("ran")
   console.log(req.query)
-  console.log(req.params)
   async function run(){
     try{
 
       await client.connect();
       const dbo = await client.db("mydb");
+      console.log("got here")
       const collection = dbo.collection("prices")
+      console.log("got here 2")
 
-      const r =await collection.insertOne(req.query)
+      const r =await collection.insertOne(req.query.message)
+      console.log("got here 3")
       console.log("added "+JSON.stringify(r))
 
     }catch(error){
