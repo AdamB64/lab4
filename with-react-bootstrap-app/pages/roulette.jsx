@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import {Container} from "react-bootstrap";
+import axios from 'axios'
 
 // Dynamically import the Wheel component to avoid SSR issues
 const WheelComponent = dynamic(() => import('../components/wheel'), { ssr: false });
+
+function save(p){
+  console.log(p)
+  //const url="http://127.0.0.1:8000/api/prize?="
+  //axios.post()
+}
 
 const Roulette = () => {
   const [mustSpin, setMustSpin] = useState(false);
@@ -28,7 +35,8 @@ const Roulette = () => {
 
   const handleStopSpinning = () => {
     setMustSpin(false);
-    setPrizeMessage(`You won: ${prizes[prizeNumber]}!`);
+    const p=setPrizeMessage(`You won: ${prizes[prizeNumber]}!`);
+    prize(p)
   };
 
   return (
