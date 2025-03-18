@@ -35,8 +35,9 @@ const Roulette = () => {
 
   const handleStopSpinning = () => {
     setMustSpin(false);
-    const p=setPrizeMessage(`You won: ${prizes[prizeNumber]}!`);
-    prize(p)
+    const message = `You won: ${prizes[prizeNumber]}!`;
+    setPrizeMessage(message); // Updates the state
+    prize(message); // Calls prize function with the correct value    
   };
 
   return (
